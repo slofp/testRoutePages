@@ -1,5 +1,14 @@
 # Svelte + TS + Vite
 
+> viteから生成するテンプレートではSveltekitは使用できない。
+> つまり、vite.config.tsのbaseUrlを変更してgithub pageにする必要がある
+> それと、github pagesではSPA(クライアントルーター)を使用した際にホームからページ遷移することはできるが特定のサイトにurl直叩きでアクセスすることはできない。
+> なので、生成されたindex.htmlをコピーして404.htmlにする必要がある
+
+> ※ルーターに使用したtinroは現svelteでは使用不可、現状使用しているのは修正したもの
+
+> ※これがcloudflareの場合はどうだろうか、要検証
+
 This template should help get you started developing with Svelte and TypeScript in Vite.
 
 ## Recommended IDE Setup

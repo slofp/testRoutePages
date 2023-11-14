@@ -4,10 +4,12 @@
 	import Counter from "./lib/Counter.svelte";
 	import { Route } from "tinro";
 	import { fly } from "svelte/transition";
+
+	const baseUrl = import.meta.env.BASE_URL;
 </script>
 
 <main>
-	<Route path="/">
+	<Route path={baseUrl}>
 		<div in:fly={{ x: 200 }}>
 			<div>
 				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
@@ -25,7 +27,7 @@
 
 			<div class="card">
 				<Counter />
-				<a class="route-btn" href="/aaa">/aaa に移動</a>
+				<a class="route-btn" href={`${baseUrl}/aaa`}>/aaa に移動</a>
 			</div>
 
 			<p>
@@ -41,10 +43,13 @@
 			</p>
 		</div>
 	</Route>
-	<Route path="/aaa">
+	<Route path={`${baseUrl}/aaa`}>
 		<div in:fly={{ x: 200 }}>
-			<a class="route-btn" href="/">/ に移動</a>
+			<a class="route-btn" href={baseUrl}>/ に移動</a>
 		</div>
+	</Route>
+	<Route fallback>
+		<p>No site</p>
 	</Route>
 </main>
 
